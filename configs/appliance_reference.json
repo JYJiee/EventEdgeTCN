@@ -1,0 +1,374 @@
+{
+  "sampling_seconds": 60,
+  "input_alignment": "exclusive_past_x[t-ws:t]_predicts_y[t]",
+  "checkpoint_selection": "validation_house_CAL_only",
+  "target_CAL_role": "decoder_calibration_only_after_weights_freeze",
+  "appliances": [
+    {
+      "appliance": "microwave",
+      "validation_house": 5,
+      "target_house": 4,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_microwave",
+        "ws": 360,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 2000,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": null,
+      "ground_truth": {
+        "threshold_w": 300,
+        "min_on": 1,
+        "min_off": 1
+      },
+      "split_rule": {
+        "family": "event_count",
+        "ft_events": 10,
+        "cal_events": 20,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.49999999999999994,
+        "min_on": 1,
+        "min_off": 1,
+        "merge_gap": 0,
+        "min_cycle_len": 2,
+        "max_cycle_len": 30
+      },
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "kettle",
+      "validation_house": 20,
+      "target_house": 11,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_kettle",
+        "ws": 240,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 3000,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": "softplus",
+      "ground_truth": {
+        "threshold_w": 300,
+        "min_on": 1,
+        "min_off": 1
+      },
+      "split_rule": {
+        "family": "event_count",
+        "ft_events": 10,
+        "cal_events": 20,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.85,
+        "min_on": 1,
+        "min_off": 1,
+        "merge_gap": 8,
+        "min_cycle_len": 1,
+        "max_cycle_len": 15
+      },
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "dishwasher",
+      "validation_house": 7,
+      "target_house": 20,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_dishwasher",
+        "ws": 120,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 2000,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": null,
+      "ground_truth": {
+        "threshold_w": 10,
+        "min_on": 20,
+        "min_off": 5
+      },
+      "split_rule": {
+        "family": "event_count",
+        "ft_events": 20,
+        "cal_events": 8,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.8499999999999999,
+        "min_on": 10,
+        "min_off": 3,
+        "merge_gap": 8,
+        "min_cycle_len": 15,
+        "max_cycle_len": 240
+      },
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "freezer",
+      "validation_house": 7,
+      "target_house": 18,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_freezer",
+        "ws": 360,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 500,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": "relu",
+      "ground_truth": {
+        "threshold_w": 25,
+        "min_on": 3,
+        "min_off": 3
+      },
+      "split_rule": {
+        "family": "time_ratio",
+        "ft_ratio": 0.5,
+        "cal_ratio": 0.1,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.5999999999999999,
+        "min_on": 8,
+        "min_off": 1,
+        "merge_gap": 2,
+        "min_cycle_len": 2,
+        "max_cycle_len": 90
+      },
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "fridge_freezer",
+      "validation_house": 11,
+      "target_house": 18,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_fridge_freezer",
+        "ws": 240,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 500,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": "relu",
+      "ground_truth": {
+        "threshold_w": 40,
+        "min_on": 3,
+        "min_off": 3
+      },
+      "split_rule": {
+        "family": "time_ratio",
+        "ft_ratio": 0.5,
+        "cal_ratio": 0.1,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.5499999999999999,
+        "min_on": 2,
+        "min_off": 2,
+        "merge_gap": 0,
+        "min_cycle_len": 2,
+        "max_cycle_len": 180
+      },
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "fridge",
+      "validation_house": 11,
+      "target_house": 20,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_fridge",
+        "ws": 240,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 500,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": "relu",
+      "ground_truth": {
+        "threshold_w": 25,
+        "min_on": 3,
+        "min_off": 3
+      },
+      "split_rule": {
+        "family": "time_ratio",
+        "ft_ratio": 0.5,
+        "cal_ratio": 0.1,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.6499999999999999,
+        "min_on": 3,
+        "min_off": 5,
+        "merge_gap": 0,
+        "min_cycle_len": 2,
+        "max_cycle_len": 240
+      },
+      "checkpoint_in_example": true
+    },
+    {
+      "appliance": "tumble_dryer",
+      "validation_house": 7,
+      "target_house": 20,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_tumble_dryer",
+        "ws": 240,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 3000,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": null,
+      "ground_truth": {
+        "threshold_w": 100,
+        "min_on": 15,
+        "min_off": 5
+      },
+      "split_rule": {
+        "family": "time_ratio",
+        "ft_ratio": 0.2,
+        "cal_ratio": 0.1,
+        "test_ratio": 0.3,
+        "decoder_guard_EventF1": 0.05,
+        "validation_ft_ratio": 0.3,
+        "target_ft_ratio": 0.2
+      },
+      "decoder": null,
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "washing_machine",
+      "validation_house": 7,
+      "target_house": 10,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_washing_machine",
+        "ws": 360,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 3000,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": "softplus",
+      "ground_truth": {
+        "threshold_w": 30,
+        "min_on": 10,
+        "min_off": 3
+      },
+      "split_rule": {
+        "family": "event_count",
+        "ft_events": 5,
+        "cal_events": 8,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.25,
+        "min_on": 5,
+        "min_off": 2,
+        "merge_gap": 5,
+        "min_cycle_len": 15,
+        "max_cycle_len": 180
+      },
+      "checkpoint_in_example": false
+    },
+    {
+      "appliance": "tv",
+      "validation_house": 3,
+      "target_house": 20,
+      "model": {
+        "name": "eventedgetcn_eventedgetcn_tv",
+        "ws": 240,
+        "in_ch": 1,
+        "aux_dim": 12,
+        "stem_ch": 32,
+        "block_ch": 48,
+        "num_blocks": 5,
+        "kernel_size": 7,
+        "dropout": 0.1,
+        "norm": "bn",
+        "power_scale": 500,
+        "use_aux": true,
+        "use_se": true
+      },
+      "power_activation": "relu",
+      "ground_truth": {
+        "threshold_w": 20,
+        "min_on": 5,
+        "min_off": 3
+      },
+      "split_rule": {
+        "family": "time_ratio",
+        "ft_ratio": 0.5,
+        "cal_ratio": 0.1,
+        "test_ratio": 0.3
+      },
+      "decoder": {
+        "threshold": 0.49999999999999994,
+        "min_on": 3,
+        "min_off": 2,
+        "merge_gap": 0,
+        "min_cycle_len": 5,
+        "max_cycle_len": 240
+      },
+      "checkpoint_in_example": false
+    }
+  ]
+}
+

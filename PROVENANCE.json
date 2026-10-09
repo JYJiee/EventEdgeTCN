@@ -1,0 +1,34 @@
+{
+  "created": "2026-10-09",
+  "release_scope": "standalone inference example; selected nine-appliance configuration reference",
+  "source_package": "EventEdgeTCN_release",
+  "source_files": [
+    {
+      "path": "eventedgetcn_core.py",
+      "sha256": "3b1d59c008513d34519bb5b191ed9c59da30100680024180a01469e6869cae22",
+      "use": "Selected function/class bodies copied unchanged; training/data/evaluation code omitted"
+    },
+    {
+      "path": "outputs/locked_protocol/protocol_manifest.json",
+      "sha256": "3e4634fc5094305b03c763da617b4d9232d17b460ebf69f1cf4e7e290e4d38dc",
+      "use": "House roles, split rules and ground-truth reference"
+    },
+    {
+      "path": "models/eventedgetcn/fridge/target_finetuned.pt",
+      "sha256": "85343d0e5bab1d79559050527761e1385a40b24f2af51217fa9bc971f58bc5a2",
+      "use": "Byte-identical copy"
+    },
+    {
+      "path": "models/eventedgetcn/fridge/decoder_config.json",
+      "sha256": "d1530a3e0a0c8f4f30371ff56667709b1f9e9db7bb1ff443221e41d3898f5261",
+      "use": "Byte-identical copy"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "b746c82991b043ba21be1effc1ee9ac6e8657d15960f877609fe7a893cf510f2",
+      "use": "Byte-identical copy"
+    }
+  ],
+  "configuration_sources": "Architecture and power activation from per-appliance result.json; final decoder from decoder_config.json; house roles and split rules from locked manifest. No result scores are shipped."
+}
+

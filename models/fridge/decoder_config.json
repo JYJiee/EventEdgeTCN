@@ -1,0 +1,21 @@
+{
+  "default": {
+    "threshold": 0.5,
+    "min_on": 3,
+    "min_off": 3,
+    "merge_gap": 3,
+    "min_cycle_len": 3,
+    "max_cycle_len": 180
+  },
+  "calibrated": {
+    "threshold": 0.6499999999999999,
+    "min_on": 3,
+    "min_off": 5,
+    "merge_gap": 0,
+    "min_cycle_len": 2,
+    "max_cycle_len": 240
+  },
+  "calibration_split": "target_house_CAL",
+  "test_used_for_decoder_selection": false,
+  "label_mask_application": "after_deployment_style_decoding"
+}

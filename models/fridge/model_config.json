@@ -1,0 +1,28 @@
+{
+  "appliance": "fridge",
+  "target_house": 20,
+  "model": {
+    "name": "eventedgetcn_eventedgetcn_fridge",
+    "ws": 240,
+    "in_ch": 1,
+    "aux_dim": 12,
+    "stem_ch": 32,
+    "block_ch": 48,
+    "num_blocks": 5,
+    "kernel_size": 7,
+    "dropout": 0.1,
+    "norm": "bn",
+    "power_scale": 500,
+    "use_aux": true,
+    "use_se": true
+  },
+  "power_activation": "relu",
+  "checkpoint_sha256": "85343d0e5bab1d79559050527761e1385a40b24f2af51217fa9bc971f58bc5a2",
+  "normalization": {
+    "mean_w": 359.4230594634287,
+    "std_w": 425.43300148293764,
+    "source": "locked REFIT House 20 fridge preprocessing metadata",
+    "source_sha256": "3532f448258c0d193a04e4fa5f1739e27baba18bf75be359fcfa38f33c132627"
+  }
+}
+
