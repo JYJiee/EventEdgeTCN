@@ -51,17 +51,25 @@ not an immediate streaming event decision. Event coordinates are zero-based
 - `run_example.py`: synthetic or user-CSV inference, CSV and JSON outputs.
 - `models/fridge/`: checkpoint, model metadata, calibrated decoder.
 - `configs/appliance_reference.json`: selected architecture, split,
-  ground-truth and final decoder parameters for all nine appliances.
+  ground-truth and decoder metadata for the nine evaluated appliances;
+  some reference fields are not yet populated.
 - `tests/test_example.py`: input alignment, missing-time decoding,
   checkpoint loading and inference checks.
 - `PROVENANCE.json`: source and artifact hashes.
+- [BASELINE_DETAILS.md](BASELINE_DETAILS.md): baseline implementation sources,
+  architecture settings, and adaptations used in the paper's comparison,
+  including the public-code adaptation of EdgeTCNformer and the independent
+  paper-based implementation of DSTCN+NAM.
 
 The configuration reference records selected settings, not the entire
 decoder search grid. Only the fridge checkpoint is included.
-Baseline experiments, training orchestration, other checkpoints, datasets,
-preprocessing caches, scheduling experiments and ESP32 firmware are outside
-this example. An expanded release is planned after paper acceptance.
+Baseline executable code and experiments, training orchestration, other
+checkpoints, datasets, preprocessing caches, scheduling experiments and ESP32
+firmware are outside this example.
 The example does not reproduce the paper's complete experimental tables.
+
+Future updates are planned to add final checkpoints for additional appliances
+and the parameters needed to run them.
 
 Run the lightweight checks with:
 
@@ -74,5 +82,5 @@ python -m unittest discover -s tests
 Code and the included checkpoint are provided under the MIT license in
 `LICENSE`. REFIT data are not distributed; obtain them from their original
 provider and comply with the dataset license. The manuscript is not covered
-by this software license. Citation details will be added with publication.
+by this software license.
 
